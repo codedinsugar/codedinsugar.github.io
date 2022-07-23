@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on codedinsugar.com</title>
+		<link>https://codedinsugar.com/posts/</link>
+		<description>Recent content in Posts on codedinsugar.com</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Fri, 22 Jul 2022 21:47:50 -0400</lastBuildDate>
+		<atom:link href="https://codedinsugar.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Hello World</title>
+			<link>https://codedinsugar.com/posts/hello-world/</link>
+			<pubDate>Fri, 22 Jul 2022 21:47:50 -0400</pubDate>
+			
+			<guid>https://codedinsugar.com/posts/hello-world/</guid>
+			<description>Initial commit :)</description>
+			<content type="html"><![CDATA[<p>Initial commit :)</p>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>

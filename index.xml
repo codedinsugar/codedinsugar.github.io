@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>codedinsugar.com</title>
+    <link>https://codedinsugar.com/</link>
+    <description>Recent content on codedinsugar.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Fri, 22 Jul 2022 21:47:50 -0400</lastBuildDate><atom:link href="https://codedinsugar.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Whoami</title>
+      <link>https://codedinsugar.com/whoami/</link>
+      <pubDate>Fri, 22 Jul 2022 21:54:27 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/whoami/</guid>
+      <description>Interesting reaction, but what does it mean?
+-Jack Skellington
+I am an Engineer at heart. I respect the symbiant circle of simplicity and complexity for the IT field of practice. Although our industry has seen a paradigm shift to the Cloud, I am grateful to have been part of the preceeding movement. Working with physical equipment on-premise brings a tangible sense of fulfillment. The best commit one can push is to take a step back and look at the bigger picture.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://codedinsugar.com/posts/hello-world/</link>
+      <pubDate>Fri, 22 Jul 2022 21:47:50 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/hello-world/</guid>
+      <description>Initial commit :)</description>
+    </item>
+    
+  </channel>
+</rss>
