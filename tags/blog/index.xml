@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on codedinsugar.com</title>
+    <link>https://codedinsugar.com/tags/blog/</link>
+    <description>Recent content in blog on codedinsugar.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Fri, 22 Jul 2022 22:37:16 -0400</lastBuildDate><atom:link href="https://codedinsugar.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog Roadmap</title>
+      <link>https://codedinsugar.com/posts/blog-roadmap/</link>
+      <pubDate>Fri, 22 Jul 2022 22:37:16 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/blog-roadmap/</guid>
+      <description> Before the score comes the goal
+July 2022 Intro posts August 2022 Configure a light|dark|colored mode September 2022 Add a custom logo and a main page image October 2022 Persist the navigation menu (current styling auto hides it) November 2022 Maintain a one post per week minimum standard December 2022 End of year wrap up </description>
+    </item>
+    
+  </channel>
+</rss>
