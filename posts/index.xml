@@ -6,8 +6,48 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 25 Jul 2022 09:45:59 -0400</lastBuildDate>
+		<lastBuildDate>Sat, 30 Jul 2022 12:49:42 -0400</lastBuildDate>
 		<atom:link href="https://codedinsugar.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Retrieve hyperlinks via cli with shuttle</title>
+			<link>https://codedinsugar.com/posts/introducting-shuttle/</link>
+			<pubDate>Sat, 30 Jul 2022 12:49:42 -0400</pubDate>
+			
+			<guid>https://codedinsugar.com/posts/introducting-shuttle/</guid>
+			<description>To infinity and beyond.
+-Buzz Lightyear
+I spend a lot of time at the terminal, either in vscode or a zsh shell.
+Two apps I use often are tldr and cht.sh because:
+I don&amp;rsquo;t remember the bookmarks that I have. I have too many bookmarks. While tldr and cht.sh are handy for retrieving public info, I needed a similar utility for work. Our tech stack has a lot of astronomy jargon e.</description>
+			<content type="html"><![CDATA[<blockquote>
+<p>To infinity and beyond.</p>
+<p>-Buzz Lightyear</p>
+</blockquote>
+<p>I spend a lot of time at the terminal, either in vscode or a zsh shell.</p>
+<p>Two apps I use often are <a href="https://github.com/tldr-pages/tldr">tldr</a> and <a href="https://github.com/chubin/cheat.sh">cht.sh</a> because:</p>
+<ol>
+<li>I don&rsquo;t remember the bookmarks that I have.</li>
+<li>I have too many bookmarks.</li>
+</ol>
+<p>While tldr and cht.sh are handy for retrieving public info, I needed a similar utility for work.  Our tech stack has a lot of astronomy jargon e.g. galaxy, quadrant, planet, etc. and since we embrace a DevOps culture I wanted to build something that blends with our spatial theme and also fits nicely with multiple teams.</p>
+<hr>
+<p>Introducting <a href="https://github.com/codedinsugar/shuttle">shuttle</a> - a simple cli tool to retrieve hyperlinks.</p>
+<p>Usage is fairly simple, just run <code>./shuttle $arg</code> and it&rsquo;ll retrieve the contents of a respectively named json file.</p>
+<h2 id="example">Example:</h2>
+<pre tabindex="0"><code>#microservice1.json is in the shuttle-files path
+
+./shuttle microservice1
+{
+  &#34;name&#34;: &#34;microservice1&#34;,
+  &#34;wiki&#34;: &#34;https://microservice1/wiki&#34;,
+  &#34;playbook&#34;: &#34;https://microservice1/playbook&#34;,
+  &#34;diagram&#34;: &#34;https://microservice1/diagram&#34;,
+  &#34;communication&#34;: &#34;https://microservice1/comms&#34;
+}
+</code></pre><p>Check it out <a href="https://github.com/codedinsugar/shuttle">here</a>!</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>How&#39;d I Get Here?  GitHub &#43; Hugo &#43; Namecheap</title>
