@@ -6,8 +6,82 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 30 Jul 2022 12:49:42 -0400</lastBuildDate>
+		<lastBuildDate>Sat, 10 Sep 2022 10:48:23 -0400</lastBuildDate>
 		<atom:link href="https://codedinsugar.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>The Beginning of secretProject</title>
+			<link>https://codedinsugar.com/posts/the-beginning-of-secretproject/</link>
+			<pubDate>Sat, 10 Sep 2022 10:48:23 -0400</pubDate>
+			
+			<guid>https://codedinsugar.com/posts/the-beginning-of-secretproject/</guid>
+			<description>What&amp;rsquo;s in a name? That which we call a rose by any other name would smell just as sweet.
+-William Shakespeare
+Where to start? Ask a thousand software enthusiasts what the two most difficult things about software development is and you&amp;rsquo;ll likely aggregate to:
+Deciding what to develop Naming what you want to develop What to develop? About 5 years ago I came up with the idea for a personal project (hereinafter called secretProject), an application that would mainly serve two purposes:</description>
+			<content type="html"><![CDATA[<blockquote>
+<p>What&rsquo;s in a name?  That which we call a rose by any other name would smell just as sweet.</p>
+<p>-William Shakespeare</p>
+</blockquote>
+<hr>
+<h1 id="where-to-start">Where to start?</h1>
+<p>Ask a thousand software enthusiasts what the two most difficult things about software development is and you&rsquo;ll likely aggregate to:</p>
+<ol>
+<li>Deciding what to develop</li>
+<li>Naming what you want to develop</li>
+</ol>
+<hr>
+<h1 id="what-to-develop">What to develop?</h1>
+<p>About 5 years ago I came up with the idea for a personal project (hereinafter called secretProject), an application that would mainly serve two purposes:</p>
+<ol>
+<li>Help me (and my family) with our daily lives</li>
+<li>Expand my knowledge of the software development lifecycle</li>
+</ol>
+<hr>
+<h1 id="how-to-get-there">How to get there?</h1>
+<p>In order to achieve these goals, I have mentally been fine tuning secretProject on how I want to build it to (hopefully) meet these features:</p>
+<ul>
+<li>Platform agnostic
+<ul>
+<li>Ideal - The application should be able to run on bare metal, virtual machines, containers, cloud platform, etc.</li>
+<li>Realistic - To save on costs, secretProject will be containerized and deployed to a Kubernetes cluster running on virtual machines hosted on a local physical server I have in the basement.</li>
+</ul>
+</li>
+<li>Automated provisioning
+<ul>
+<li>Ideal - In the event of a disaster, a ci/cd pipeline should be able to provision the application based on it&rsquo;s last healthy configuration.</li>
+<li>Realistic - KVM (virsh), Ansible, and Terraform will be triggered manually at first.</li>
+</ul>
+</li>
+<li>Mobile ready
+<ul>
+<li>Ideal - I&rsquo;d love to build a mobile Android app so I can submit content to secretProject for processing.</li>
+<li>Realistic - All RESTful queries will have to be performed locally on the same subnet as secretProject.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="where-will-this-stuff-go">Where will this stuff go?</h1>
+<p>With the idea of secretProject in mind and infrastructure on hand, what happens next?  I know secretProject will be containerized and deployed in a Kubernetes cluster which is running on KVM virtual machines so let&rsquo;s start there.</p>
+<p>I built up a homelab/gaming server about 10 years ago running with hardware spec:</p>
+<ul>
+<li>Asus M5A99FX PRO R2.0 motherboard</li>
+<li>AMD FX-8320 8 core 3500MHz cpu</li>
+<li>32GB Corsair Vengeance DDR3 memory</li>
+<li>Nvidia GeForce GTX 650 Ti Boost video card</li>
+<li>Samsung SSD 850 EVO 1TB hard drive</li>
+</ul>
+<p>I&rsquo;ve had AlmaLinux 8.5 running on it for about a year now (RIP CentOS) which is stable enough to run as a KVM hypervisor with 3-5 vm&rsquo;s depending on compute metrics needed.</p>
+<hr>
+<h1 id="what-happens-next">What happens next?</h1>
+<p>I know what I want to build, where to build it, and how to build it, but what&rsquo;s our plan?  Let&rsquo;s keep it simple and start with just:</p>
+<ol>
+<li>Provision 2-3 vm&rsquo;s on my lab server (hereinafter called soulbox) using libvirt/virsh</li>
+</ol>
+<p>See you in the next post&hellip;</p>
+<hr>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Retrieve hyperlinks via cli with shuttle</title>
