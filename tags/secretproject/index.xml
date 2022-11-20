@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 10 Sep 2022 10:48:23 -0400</lastBuildDate><atom:link href="https://codedinsugar.com/tags/secretproject/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Oct 2022 07:31:12 -0400</lastBuildDate><atom:link href="https://codedinsugar.com/tags/secretproject/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>secretProject part 1 - fun with KVM</title>
+      <link>https://codedinsugar.com/posts/kubernetes-cluster-pt-1/</link>
+      <pubDate>Sat, 01 Oct 2022 07:31:12 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/kubernetes-cluster-pt-1/</guid>
+      <description>Unfortunately, no one can be told what the Matrix is. You have to see it for yourself.
+-Morpheus
+Previously on codedinsugar.com Continuing where we left off, I wanted to build a kvm vm&amp;rsquo;s to run a Kubernetes cluster for the secretProject platform.
+Since the early 2000&amp;rsquo;s I&amp;rsquo;ve used several virtualization hypervisors, including:
+Hyper-V KVM VMware VirtualBox XenServer Not including AWS EC2 and Docker But for the purpose of secretProject and the need to self-host on a single bare metal machine, I needed the most lightweight solution and luckily without the need a ton of features.</description>
+    </item>
+    
     <item>
       <title>The Beginning of secretProject</title>
       <link>https://codedinsugar.com/posts/the-beginning-of-secretproject/</link>
