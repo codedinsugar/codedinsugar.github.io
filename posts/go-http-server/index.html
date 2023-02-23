@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>secretProject part 3 - http.HandleFunc in Go</title>
+    <meta name="description" content="SRE &#43; DEV &#43; OPS">
+    <meta name="keywords" content='blog, codedinsugar, hugo, dev, go'>
+
+    <meta property="og:url" content="https://codedinsugar.com/posts/go-http-server/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="secretProject part 3 - http.HandleFunc in Go">
+    <meta property="og:description" content="SRE &#43; DEV &#43; OPS">
+    <meta property="og:image" content="/images/sugar.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="secretProject part 3 - http.HandleFunc in Go">
+    <meta name="twitter:description" content="SRE &#43; DEV &#43; OPS">
+    <meta property="twitter:domain" content="https://codedinsugar.com/posts/go-http-server/">
+    <meta property="twitter:url" content="https://codedinsugar.com/posts/go-http-server/">
+    <meta name="twitter:image" content="/images/sugar.png">
+
+    
+    <link rel="canonical" href="https://codedinsugar.com/posts/go-http-server/" />
+
+    <link rel="stylesheet" type="text/css" href="https://codedinsugar.com/css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://codedinsugar.com/css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://codedinsugar.com/css/dark.css">
+
+    <script src="https://codedinsugar.com/js/svg-injector.min.js"></script>
+    <script src="https://codedinsugar.com/js/feather-icons.min.js"></script>
+    <script src="https://codedinsugar.com/js/main.js"></script>
+
+    
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://codedinsugar.com">
+                <img src="https://codedinsugar.com/images/sugar.png" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://codedinsugar.com">codedinsugar</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/"><span data-feather='home'></span> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/posts/"><span data-feather='code'></span> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/whoami"><span data-feather='cpu'></span> Whoami </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/tags/"><span data-feather='tag'></span> Tags </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/"><span data-feather='home'></span> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/posts/"><span data-feather='code'></span> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/whoami"><span data-feather='cpu'></span> Whoami </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/tags/"><span data-feather='tag'></span> Tags </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>secretProject part 3 - http.HandleFunc in Go</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            November 1, 2022
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://codedinsugar.com/tags/dev">dev</a></li>
+        
+            <li class="post-tag"><a href="https://codedinsugar.com/tags/go">go</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <blockquote>
+<p>Oh, what a tangled web we weave, when first we practice to deceive!!.</p>
+<p>-Sir Walter Scott</p>
+</blockquote>
+<hr>
+<h1 id="previously-on-codedinsugarcom">Previously on codedinsugar.com</h1>
+<p>Now that we have our secretProject <a href="https://codedinsugar.com/posts/kubernetes-cluster-pt-2/">Kubernetes cluster built</a>, let&rsquo;s throw some custom apps in there!</p>
+<h1 id="keep-it-simple-and-sweet">Keep it simple and sweet</h1>
+<p>This is NOT a Kubernetes (k8s) tutorial!  The k8s ecosystem is massive if you&rsquo;re into container orchestration, read their docs <a href="https://kubernetes.io/docs/home/">here</a>.  I use k8s everyday at work and at home and even though it&rsquo;s almost become second nature for me, I still don&rsquo;t know everything about it&hellip;</p>
+<p>The purpose of this post is to:</p>
+<ul>
+<li>Build a simple http server in Go using only the standard library</li>
+<li>Deploy that app to k8s</li>
+</ul>
+<h1 id="listen-serve-handle">Listen, Serve, Handle</h1>
+<p>The end result of our http server is this:</p>
+<pre tabindex="0"><code>// Test with curl -d &#39;data&#39; localhost:9190
+package main
+
+import (
+	&#34;fmt&#34;
+	&#34;io/ioutil&#34;
+	&#34;log&#34;
+	&#34;net/http&#34;
+)
+
+func main() {
+	//HandleFunc is a convenience method that creates an http handler to respond to http requests
+	http.HandleFunc(&#34;/&#34;, func(res http.ResponseWriter, req *http.Request) {
+		data, err := ioutil.ReadAll(req.Body)
+		if err != nil {
+			http.Error(res, &#34;Uh oh something didn&#39;t go right...&#34;, http.StatusBadRequest)
+		} else {
+			fmt.Fprintf(res, &#34;Hello %s\n&#34;, data)
+			log.Printf(&#34;Data: %s\n&#34;, data)
+		}
+	})
+
+	http.HandleFunc(&#34;/goodbye&#34;, func(res http.ResponseWriter, req *http.Request) {
+		data, err := ioutil.ReadAll(req.Body)
+		if err != nil {
+			http.Error(res, &#34;Uh oh something didn&#39;t go right...&#34;, http.StatusBadRequest)
+		} else {
+			fmt.Fprintf(res, &#34;Goodbye %s\n&#34;, data)
+			log.Printf(&#34;Data: %s\n&#34;, data)
+		}
+	})
+
+	http.ListenAndServe(&#34;:9190&#34;, nil) // 9090 is taken by Cockpit UI
+}
+</code></pre><p>But let&rsquo;s break down what&rsquo;s happening in <code>main()</code> even further&hellip;</p>
+<pre tabindex="0"><code>http.HandleFunc(&#34;/&#34;, func(res http.ResponseWriter, req *http.Request)
+</code></pre><p>If you traceback the references from <a href="https://pkg.go.dev/net/http#HandleFunc">http.HandleFunc</a> ultimately you&rsquo;ll see that the <a href="https://pkg.go.dev/net/http#ServeMux">ServeMux</a> type is inferred.  ServeMux is an HTTP request multiplexer. It matches the URL of each incoming request against a list of registered patterns and calls the handler for the pattern that most closely matches the URL.  The pattern that we&rsquo;re matching is the first argument of the function which is <code>&quot;/&quot;</code> aka the root path after the base domain.  The second argument is an interface to the <a href="https://pkg.go.dev/net/http#Handler">Handler</a> type with a single method called <code>ServeHTTP</code> that accepts a <a href="https://pkg.go.dev/net/http#ResponseWriter">ResponseWriter</a> interface type and a <a href="https://pkg.go.dev/net/http#Request">Request</a> struct type.  These guys make the request magic happen!</p>
+<pre tabindex="0"><code>data, err := ioutil.ReadAll(req.Body)
+if err != nil {
+	http.Error(res, &#34;Uh oh something didn&#39;t go right...&#34;, http.StatusBadRequest)
+} else {
+	fmt.Fprintf(res, &#34;Hello %s\n&#34;, data)
+	log.Printf(&#34;Data: %s\n&#34;, data)
+}
+</code></pre><p>So so now we need to handle what&rsquo;s actually in the request.  The <code>.Body</code> method is of interface type <a href="https://pkg.go.dev/io#ReadCloser">ReadCloser</a> which we&rsquo;ll assign to the <code>data</code> and <code>err</code> variable identifiers.  If <code>err</code> is satisfied then the <code>.Error</code> method will use <code>res</code> to return a specific string and the response code in <code>.StatusBadRequest</code>.  Simple enough yeah?</p>
+<p>To test different request paths we&rsquo;ll create another handle but with a different signature using the <code>&quot;/goodbye&quot;</code> path.</p>
+<pre tabindex="0"><code>http.ListenAndServe(&#34;:9190&#34;, nil)
+</code></pre><p>Request and response, check.  Now what?  We have to tell the system running the http server (my local box) what port to actually listen on which is where <a href="https://pkg.go.dev/net/http#Server.ListenAndServe">http.ListenAndServe</a> comes in at TCP port 9190.</p>
+<h1 id="run-and-build">Run and Build</h1>
+<p>Coolio, let&rsquo;s see this bad boy in action:</p>
+<pre tabindex="0"><code>go run main.go
+// produces no output
+
+curl -d &#39;codedinsugar.com&#39; localhost:9190
+Hello codedinsugar.com
+// ran from a different terminal
+
+2022/11/01 17:47:39 Data: codedinsugar.com
+// returned from original terminal
+
+---
+
+curl -d &#39;testingGoodbye&#39; localhost:9190/goodbye
+Goodbye testingGoodbye
+...
+2022/11/01 17:48:30 Data: testingGoodbye
+</code></pre><p>Beautiful and working as expected.  I wonder what else we can pass to <code>-d</code>?</p>
+<pre tabindex="0"><code>curl -d $(curl ipinfo.io/ip) localhost:9190
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    13  100    13    0     0     36      0 --:--:-- --:--:-- --:--:--    36
+Hello 78.255.xxx.xxx
+...
+2022/11/01 17:49:15 Data: 78.255.xxx.xxx
+</code></pre><p>:)</p>
+
+        </p>
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2023 codedinsugar.com</span>
+</footer>
+</body>
+</html>

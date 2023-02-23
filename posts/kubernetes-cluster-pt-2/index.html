@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>secretProject part 2 - fun with Ansible</title>
+    <meta name="description" content="SRE &#43; DEV &#43; OPS">
+    <meta name="keywords" content='blog, codedinsugar, hugo, dev, secretProject'>
+
+    <meta property="og:url" content="https://codedinsugar.com/posts/kubernetes-cluster-pt-2/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="secretProject part 2 - fun with Ansible">
+    <meta property="og:description" content="SRE &#43; DEV &#43; OPS">
+    <meta property="og:image" content="/images/sugar.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="secretProject part 2 - fun with Ansible">
+    <meta name="twitter:description" content="SRE &#43; DEV &#43; OPS">
+    <meta property="twitter:domain" content="https://codedinsugar.com/posts/kubernetes-cluster-pt-2/">
+    <meta property="twitter:url" content="https://codedinsugar.com/posts/kubernetes-cluster-pt-2/">
+    <meta name="twitter:image" content="/images/sugar.png">
+
+    
+    <link rel="canonical" href="https://codedinsugar.com/posts/kubernetes-cluster-pt-2/" />
+
+    <link rel="stylesheet" type="text/css" href="https://codedinsugar.com/css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://codedinsugar.com/css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://codedinsugar.com/css/dark.css">
+
+    <script src="https://codedinsugar.com/js/svg-injector.min.js"></script>
+    <script src="https://codedinsugar.com/js/feather-icons.min.js"></script>
+    <script src="https://codedinsugar.com/js/main.js"></script>
+
+    
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://codedinsugar.com">
+                <img src="https://codedinsugar.com/images/sugar.png" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://codedinsugar.com">codedinsugar</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/"><span data-feather='home'></span> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/posts/"><span data-feather='code'></span> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/whoami"><span data-feather='cpu'></span> Whoami </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/tags/"><span data-feather='tag'></span> Tags </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/"><span data-feather='home'></span> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/posts/"><span data-feather='code'></span> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/whoami"><span data-feather='cpu'></span> Whoami </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/tags/"><span data-feather='tag'></span> Tags </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>secretProject part 2 - fun with Ansible</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            October 20, 2022
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://codedinsugar.com/tags/dev">dev</a></li>
+        
+            <li class="post-tag"><a href="https://codedinsugar.com/tags/secretproject">secretProject</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <blockquote>
+<p>Mr. Wizard!  Get me the hell out of here!.</p>
+<p>-Neo</p>
+</blockquote>
+<hr>
+<h1 id="previously-on-codedinsugarcom">Previously on codedinsugar.com</h1>
+<p>Continuing where we <a href="https://codedinsugar.com/posts/kubernetes-cluster-pt-1/">left off</a>, we&rsquo;ve used <code>libvirt/virt-install</code> to successfully create three vm&rsquo;s for our Kubernetes cluster for secretProject.  So what happens next?</p>
+<h1 id="lets-play-with-ansible">Let&rsquo;s play with Ansible</h1>
+<p>I&rsquo;ve used Ansible often in the past but it was never a core part of my daily work.  There is a lot to learn about Ansible and I highly suggest you check out their <a href="https://www.ansible.com/resources/get-started">site</a>, especially if you&rsquo;re interested in the SRE/DevOps space.</p>
+<p>This post is NOT an Ansible tutorial and if you&rsquo;re following along then these assumptions are made:</p>
+<ol>
+<li>An <code>ansible</code> user has already been created where needed</li>
+<li>SSH keys have been copied over with <code>ssh-copy-id</code></li>
+<li><code>/etc/hosts</code> aligns with ansible inventory as needed</li>
+<li>An initial test has been performed with <code>ansible $hosts -m ping</code></li>
+</ol>
+<p>I&rsquo;m running ansible-core 2.13.3 and I need to install the following collections:</p>
+<pre tabindex="0"><code> ansible-galaxy collection install ansible.posix
+ ansible-galaxy collection install community.general
+</code></pre><p>To build the cluster 95% of the way, I used this playbook with multiple tasks:</p>
+<pre tabindex="0"><code>- name: Kubernetes cluster setup
+  hosts: lab
+  become: yes
+  
+  tasks:
+    - name: Disable selinux
+      ansible.posix.selinux:
+        state: disabled
+    - name: Remove swapfile from /etc/fstab
+      mount:
+        name: &#34;{{ item }}&#34;
+        fstype: swap
+        state: absent
+      with_items:
+        - swap
+        - none
+    - name: Disable swap
+      command: swapoff -a
+      when: ansible_swaptotal_mb &gt; 0
+    - name: Configure firewalld rules
+      firewalld:
+        permanent: yes
+        immediate: yes
+        state: enabled
+        port: &#34;{{ item.port }}/tcp&#34;
+      with_items:
+        - {port: &#34;6443&#34;}
+        - {port: &#34;2379-2380&#34;}
+        - {port: &#34;10250-10252&#34;}
+        - {port: &#34;10255&#34;}
+    - name: Add system modules
+      modprobe:
+        name: br_netfilter
+        state: present
+    - name: Enable bridge-nf-call tables
+      sysctl:
+        name: net.bridge.bridge-nf-call-iptables
+        value: 1
+        state: present
+        reload: yes
+    - name: Reload sysctl
+      ansible.builtin.shell: |
+        sysctl --system
+    - name: Add Docker repo to yum
+      ansible.builtin.get_url:
+        url: https://download.docker.com/linux/centos/docker-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
+    - name: Install docker-ce
+      ansible.builtin.yum:
+        name: &#34;{{ packages }}&#34;
+        state: present
+      vars:
+        packages:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+    - name: Enable docker service
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: yes
+    - name: Enable containerd service
+      ansible.builtin.service:
+        name: containerd
+        state: started
+        enabled: yes
+    - name: Generate containerd config.toml and change cgroup
+      ansible.builtin.shell: |
+        containerd config default | sudo tee /etc/containerd/config.toml
+        sudo sed -i &#39;s/SystemdCgroup = false/SystemdCgroup = true/g&#39; /etc/containerd/config.toml
+    - name: Add Kubernetes repo to yum
+      ansible.builtin.shell: |
+        cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
+        [kubernetes]
+        name=Kubernetes
+        baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+        enabled=1
+        gpgcheck=1
+        repo_gpgcheck=1
+        gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+        EOF
+    - name: Install kubernetes and bootstrap cluster
+      ansible.builtin.yum:
+        name: &#34;{{ packages }}&#34;
+        state: present
+      vars:
+        packages:
+          - kubeadm
+          - kubectl
+          - kubelet
+    - name: Enable kubelet service
+      ansible.builtin.service:
+        name: kubelet
+        state: started
+        enabled: yes
+    - name: Restart containerd service
+      ansible.builtin.service:
+        name: containerd
+        state: restarted
+        enabled: yes
+</code></pre><p>I say 95% of the way because ansible kept not playing nice with <code>kubeadm init</code>.  I&rsquo;m  sure if I tune the playbook I&rsquo;ll get it to work but aint nobody go time for tha shit (right now at least).</p>
+<p>So after the playbook runs successfully to completion, final steps would be:</p>
+<pre tabindex="0"><code>#master node
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</code></pre><pre tabindex="0"><code>#worker nodes
+sudo kubeadm join 192.168.150.25:6443 --token en2660.qe9xusas64icvt7t --discovery-token-ca-cert-hash sha256:foobarblahblahblah
+</code></pre><p>Always trust but verify:</p>
+<pre tabindex="0"><code>NAMESPACE              NAME                                         READY   STATUS    RESTARTS   AGE
+default                nginx-ff6774dc6-jp77l                        1/1     Running   0          4h50m
+kube-flannel           kube-flannel-ds-8gbbr                        1/1     Running   0          4h55m
+kube-flannel           kube-flannel-ds-9n9jv                        1/1     Running   0          4h56m
+kube-flannel           kube-flannel-ds-tmzql                        1/1     Running   0          4h54m
+kube-system            coredns-565d847f94-rm6c8                     1/1     Running   0          4h59m
+kube-system            coredns-565d847f94-tzxkn                     1/1     Running   0          4h59m
+kube-system            etcd-control1                                1/1     Running   0          4h59m
+kube-system            kube-apiserver-control1                      1/1     Running   0          4h59m
+kube-system            kube-controller-manager-control1             1/1     Running   0          4h59m
+kube-system            kube-proxy-4rcsq                             1/1     Running   0          4h59m
+kube-system            kube-proxy-jndl5                             1/1     Running   0          4h54m
+kube-system            kube-proxy-kfxvq                             1/1     Running   0          4h55m
+kube-system            kube-scheduler-control1                      1/1     Running   0          4h59m
+</code></pre><p>Beautiful!</p>
+<p>I even tested an nginx deployment:</p>
+<pre tabindex="0"><code>#kubectl apply -f the contents below
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+</code></pre><pre tabindex="0"><code>kubectl get pods | grep nginx
+nginx-ff6774dc6-jp77l   1/1     Running   0          4h53m
+</code></pre><p>The fat lady has sung!</p>
+
+        </p>
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2023 codedinsugar.com</span>
+</footer>
+</body>
+</html>

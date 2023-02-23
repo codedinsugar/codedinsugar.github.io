@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bash on codedinsugar</title>
+    <link>https://codedinsugar.com/tags/bash/</link>
+    <description>Recent content in bash on codedinsugar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 30 Jul 2022 12:49:42 -0400</lastBuildDate><atom:link href="https://codedinsugar.com/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Retrieve hyperlinks via cli with shuttle</title>
+      <link>https://codedinsugar.com/posts/introducting-shuttle/</link>
+      <pubDate>Sat, 30 Jul 2022 12:49:42 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/introducting-shuttle/</guid>
+      <description>To infinity and beyond.
+-Buzz Lightyear
+I spend a lot of time at the terminal, either in vscode or a zsh shell.
+Two apps I use often are tldr and cht.sh because:
+I don&amp;rsquo;t remember the bookmarks that I have. I have too many bookmarks. While tldr and cht.sh are handy for retrieving public info, I needed a similar utility for work. Our tech stack has a lot of astronomy jargon e.</description>
+    </item>
+    
+  </channel>
+</rss>

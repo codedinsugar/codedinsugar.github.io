@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go on codedinsugar</title>
+    <link>https://codedinsugar.com/tags/go/</link>
+    <description>Recent content in go on codedinsugar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Nov 2022 16:03:06 -0500</lastBuildDate><atom:link href="https://codedinsugar.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>secretProject part 3 - http.HandleFunc in Go</title>
+      <link>https://codedinsugar.com/posts/go-http-server/</link>
+      <pubDate>Tue, 01 Nov 2022 16:03:06 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/go-http-server/</guid>
+      <description>Oh, what a tangled web we weave, when first we practice to deceive!!.
+-Sir Walter Scott
+Previously on codedinsugar.com Now that we have our secretProject Kubernetes cluster built, let&amp;rsquo;s throw some custom apps in there!
+Keep it simple and sweet This is NOT a Kubernetes (k8s) tutorial! The k8s ecosystem is massive if you&amp;rsquo;re into container orchestration, read their docs here. I use k8s everyday at work and at home and even though it&amp;rsquo;s almost become second nature for me, I still don&amp;rsquo;t know everything about it&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on codedinsugar</title>
+    <link>https://codedinsugar.com/tags/python/</link>
+    <description>Recent content in python on codedinsugar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Feb 2023 21:25:53 -0500</lastBuildDate><atom:link href="https://codedinsugar.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From http.server with love</title>
+      <link>https://codedinsugar.com/posts/httpyze-server/</link>
+      <pubDate>Sun, 19 Feb 2023 21:25:53 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/httpyze-server/</guid>
+      <description>Darling Moneypenny, you know I never even look at another woman..
+-James Bond
+So we layed out the plan here, and now we action it.
+Let&amp;rsquo;s just jump right into it Here&amp;rsquo;s what we&amp;rsquo;re working with:
+$ tree . ├── Dockerfile ├── README.md └── src ├── httpsrv.py └── index.html Obviously the fun bits are going to be in httpsrv.py:
+from http.server import HTTPServer, BaseHTTPRequestHandler listenPort = 9292 class MyServer(BaseHTTPRequestHandler): def do_GET(self): if self.</description>
+    </item>
+    
+    <item>
+      <title>httPyze - a Python model for secretProject</title>
+      <link>https://codedinsugar.com/posts/golden/</link>
+      <pubDate>Fri, 23 Dec 2022 10:39:50 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/golden/</guid>
+      <description>Everything has beauty, but not everyone sees it.
+-Confucius
+Python how I love thee, let me count the ways In a recent social engagement, the topic of discussion was Python. Somewhere in the middle of the conversation I said something along the lines of &amp;ldquo;I love Python, been reading it for years, wish I could write more of it everyday&amp;rdquo;. Then it dawned on me, why don&amp;rsquo;t I write Python everyday?</description>
+    </item>
+    
+  </channel>
+</rss>

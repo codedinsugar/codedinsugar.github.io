@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>secretProject part 1 - fun with KVM</title>
+    <meta name="description" content="SRE &#43; DEV &#43; OPS">
+    <meta name="keywords" content='blog, codedinsugar, hugo, dev, secretProject'>
+
+    <meta property="og:url" content="https://codedinsugar.com/posts/kubernetes-cluster-pt-1/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="secretProject part 1 - fun with KVM">
+    <meta property="og:description" content="SRE &#43; DEV &#43; OPS">
+    <meta property="og:image" content="/images/sugar.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="secretProject part 1 - fun with KVM">
+    <meta name="twitter:description" content="SRE &#43; DEV &#43; OPS">
+    <meta property="twitter:domain" content="https://codedinsugar.com/posts/kubernetes-cluster-pt-1/">
+    <meta property="twitter:url" content="https://codedinsugar.com/posts/kubernetes-cluster-pt-1/">
+    <meta name="twitter:image" content="/images/sugar.png">
+
+    
+    <link rel="canonical" href="https://codedinsugar.com/posts/kubernetes-cluster-pt-1/" />
+
+    <link rel="stylesheet" type="text/css" href="https://codedinsugar.com/css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://codedinsugar.com/css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://codedinsugar.com/css/dark.css">
+
+    <script src="https://codedinsugar.com/js/svg-injector.min.js"></script>
+    <script src="https://codedinsugar.com/js/feather-icons.min.js"></script>
+    <script src="https://codedinsugar.com/js/main.js"></script>
+
+    
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://codedinsugar.com">
+                <img src="https://codedinsugar.com/images/sugar.png" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://codedinsugar.com">codedinsugar</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/"><span data-feather='home'></span> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/posts/"><span data-feather='code'></span> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/whoami"><span data-feather='cpu'></span> Whoami </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/tags/"><span data-feather='tag'></span> Tags </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/"><span data-feather='home'></span> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/posts/"><span data-feather='code'></span> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/whoami"><span data-feather='cpu'></span> Whoami </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/tags/"><span data-feather='tag'></span> Tags </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>secretProject part 1 - fun with KVM</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            October 1, 2022
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://codedinsugar.com/tags/dev">dev</a></li>
+        
+            <li class="post-tag"><a href="https://codedinsugar.com/tags/secretproject">secretProject</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <blockquote>
+<p>Unfortunately, no one can be told what the Matrix is. You have to see it for yourself.</p>
+<p>-Morpheus</p>
+</blockquote>
+<hr>
+<h1 id="previously-on-codedinsugarcom">Previously on codedinsugar.com</h1>
+<p>Continuing where we <a href="https://codedinsugar.com/posts/the-beginning-of-secretproject/#what-happens-next">left off</a>, I wanted to build a kvm vm&rsquo;s to run a Kubernetes cluster for the secretProject platform.</p>
+<p>Since the early 2000&rsquo;s I&rsquo;ve used several virtualization hypervisors, including:</p>
+<ul>
+<li>Hyper-V</li>
+<li>KVM</li>
+<li>VMware</li>
+<li>VirtualBox</li>
+<li>XenServer</li>
+<li>Not including AWS EC2 and Docker</li>
+</ul>
+<p>But for the purpose of secretProject and the need to self-host on a single bare metal machine, I needed the most lightweight solution and luckily without the need a ton of features.</p>
+<hr>
+<h1 id="enter-kvm">Enter KVM</h1>
+<p>KVM, which stands for Kernel-based Virtual Machine, is a virtualization solution which is typically native to the Linux kernel.  Of all the hypervisors that I&rsquo;m familiar with, KVM will run as close to cpu as possible, making it the fastest and most lightweight.  Perfect.</p>
+<p>This post is not a KVM tutorial.  If you&rsquo;re interested in learning more about it, <a href="https://www.youtube.com/watch?v=HfNKpT2jo7">Josh Rosso&rsquo;s YT channel</a> is a really, really good resource.  He also wrote a book, <a href="https://www.oreilly.com/library/view/production-kubernetes/9781492092292/">Production Kubernetes</a>.  If you&rsquo;re on a RHEL distribution like I am, RedHat has extensive documention under their <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/index">Virtualization Deployment and Administration Guide</a> which has everything you need to get started with KVM.</p>
+<hr>
+<h1 id="click-vs-code">Click vs Code</h1>
+<p>So fast forward to after all the kvm, qemu, libvirt, and all pre-requisites and dependencies are installed and we&rsquo;re ready to begin.  With my setup, I had two options of creating the vm&rsquo;s:</p>
+<ol>
+<li>Use the <a href="https://cockpit-project.org/">Cockpit UI</a></li>
+<li>Use <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-guest_virtual_machine_installation_overview-creating_guests_with_virt_install"><code>virt-install</code></a></li>
+</ol>
+<p>Using Cockpit UI is a little too easy, just browse to https://localhost:9090/machines, click Create VM, choose parameters and done.  I could easily do that anytime I need to create new vm&rsquo;s or re-create one with a specific image.  But remember from the <a href="https://codedinsugar.com/posts/the-beginning-of-secretproject/#how-to-get-there">secretProject requirements</a>, I want an automated solution that is highly configureable.  The problem with using Cockpit UI is that once the vm is created and started, you still have to manually click through the OS configuration screens.  Sure this task only takes 5-10 minutes but it&rsquo;s still <a href="https://sre.google/sre-book/eliminating-toil/">toil</a>.  So <code>virt-install</code> it is then :)</p>
+<hr>
+<h1 id="virt-install-dry-run"><code>virt-install</code> Dry-run</h1>
+<p>Building a vm with the <code>libvirt</code> library is fairly simple and the RedHat docs <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-guest_virtual_machine_installation_overview-creating_guests_with_virt_install">here</a> provide a decent walkthough on the process.  Since I need to create three vm&rsquo;s (1x master and 2x worker), three shell scripts can get things started:</p>
+<pre tabindex="0"><code>#!/usr/bin/env bash
+
+echo &#34;Creating vm1&#34;
+ 
+virt-install \
+    --connect qemu:///system \
+    --virt-type kvm \
+    --name vm1 \
+    --memory 8192 \
+    --vcpus 2 \
+    --location /var/lib/libvirt/images/AlmaLinux-8.5-x86_64-minimal.iso --unattended \
+    --disk size=20 \
+    --network bridge:virbr0 \
+    --graphics=vnc \
+    --console pty,target_type=serial \
+    --wait 0 \
+    --initrd-inject /home/codedinsugar/dev/cicd/gitlab/kvm/scripts/almalinux85-create-vm1-kickstart.cfg \
+    --extra-args &#34;ks=file:/almalinux85-create-vm1-kickstart.cfg console=tty0 console=ttyS0,115200n8&#34;
+</code></pre><p>The parameters should be self explanatory but notice the use of the kickstart file in <code>--initrd-inject</code> and <code>--extra-args</code> which looks like this:</p>
+<pre tabindex="0"><code>#version=RHEL8
+# Use graphical install
+graphical
+
+repo --name=&#34;Minimal&#34; --baseurl=file:///run/install/sources/mount-0000-cdrom/Minimal
+
+%packages
+@^minimal-environment
+@headless-management
+@development
+@standard
+@system-tools
+kexec-tools
+
+%end
+
+# Keyboard layouts
+keyboard --xlayouts=&#39;us&#39;
+# System language
+lang en_US.UTF-8
+
+# Use CDROM installation media
+cdrom
+
+# Run the Setup Agent on first boot
+firstboot --disable
+
+ignoredisk --only-use=vda
+autopart
+# Partition clearing information
+clearpart --none --initlabel
+
+# System timezone
+timezone America/New_York --isUtc
+
+# Root password
+rootpw --iscrypted $blahblahblah
+user --groups=wheel --name=foo --password=$blahblahblah/ --iscrypted --gecos=&#34;foo&#34;
+user --name=ansible --password=ansible
+
+# Network information
+network  --bootproto=static --device=enp1s0 --gateway=192.168.122.1 --ip=192.168.122.25 --nameserver=192.168.122.1 --netmask=255.255.255.0 --ipv6=auto --activate
+network  --hostname=vm1
+
+%addon com_redhat_kdump --enable --reserve-mb=&#39;auto&#39;
+
+%end
+
+%anaconda
+pwpolicy root --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+pwpolicy user --minlen=6 --minquality=1 --notstrict --nochanges --emptyok
+pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+%end
+
+reboot
+</code></pre><p>A few things of note here:</p>
+<ol>
+<li>Prepping each vm for ansible with <code>user --name=ansible --password=ansible</code> :)</li>
+<li>The <code>network</code> lines are defining layer 3 for each specific vm.</li>
+</ol>
+<p>After defining any vm specific settings in the shell script and the kickstart file, we can see the vm&rsquo;s with:</p>
+<pre tabindex="0"><code>sudo virsh list --all
+
+ Id   Name           State
+------------------------------
+ 1    vm1    running
+ 2    vm2    running
+ 3    vm3    running
+</code></pre><p>Wunderbar!</p>
+
+        </p>
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2023 codedinsugar.com</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>From http.server with love</title>
+    <meta name="description" content="SRE &#43; DEV &#43; OPS">
+    <meta name="keywords" content='blog, codedinsugar, hugo, python'>
+
+    <meta property="og:url" content="https://codedinsugar.com/posts/httpyze-server/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="From http.server with love">
+    <meta property="og:description" content="SRE &#43; DEV &#43; OPS">
+    <meta property="og:image" content="/images/sugar.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="From http.server with love">
+    <meta name="twitter:description" content="SRE &#43; DEV &#43; OPS">
+    <meta property="twitter:domain" content="https://codedinsugar.com/posts/httpyze-server/">
+    <meta property="twitter:url" content="https://codedinsugar.com/posts/httpyze-server/">
+    <meta name="twitter:image" content="/images/sugar.png">
+
+    
+    <link rel="canonical" href="https://codedinsugar.com/posts/httpyze-server/" />
+
+    <link rel="stylesheet" type="text/css" href="https://codedinsugar.com/css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://codedinsugar.com/css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://codedinsugar.com/css/dark.css">
+
+    <script src="https://codedinsugar.com/js/svg-injector.min.js"></script>
+    <script src="https://codedinsugar.com/js/feather-icons.min.js"></script>
+    <script src="https://codedinsugar.com/js/main.js"></script>
+
+    
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://codedinsugar.com">
+                <img src="https://codedinsugar.com/images/sugar.png" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://codedinsugar.com">codedinsugar</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/"><span data-feather='home'></span> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/posts/"><span data-feather='code'></span> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/whoami"><span data-feather='cpu'></span> Whoami </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/tags/"><span data-feather='tag'></span> Tags </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/"><span data-feather='home'></span> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/posts/"><span data-feather='code'></span> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/whoami"><span data-feather='cpu'></span> Whoami </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/tags/"><span data-feather='tag'></span> Tags </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>From http.server with love</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            February 19, 2023
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://codedinsugar.com/tags/blog">blog</a></li>
+        
+            <li class="post-tag"><a href="https://codedinsugar.com/tags/python">python</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <blockquote>
+<p>Darling Moneypenny, you know I never even look at another woman..</p>
+<p>-James Bond</p>
+</blockquote>
+<p>So we layed out the plan <a href="https://codedinsugar.com/posts/golden/">here</a>, and now we action it.</p>
+<h1 id="lets-just-jump-right-into-it">Let&rsquo;s just jump right into it</h1>
+<p>Here&rsquo;s what we&rsquo;re working with:</p>
+<pre tabindex="0"><code>$ tree
+.
+├── Dockerfile
+├── README.md
+└── src
+    ├── httpsrv.py
+    └── index.html
+</code></pre><p>Obviously the fun bits are going to be in <code>httpsrv.py</code>:</p>
+<pre tabindex="0"><code>from http.server import HTTPServer, BaseHTTPRequestHandler
+
+listenPort = 9292
+
+class MyServer(BaseHTTPRequestHandler):
+    def do_GET(self):        
+        if self.path == &#34;/&#34;:
+            self.path = &#34;/index.html&#34;
+            try:
+                open_index = open(self.path[1:]).read()
+                self.send_response(200)
+                self.send_header(&#34;Content-type&#34;, &#34;text/html&#34;)
+            except:
+                open_index = &#34;File not found&#34;
+                self.send_response(404)            
+            self.end_headers()
+            self.wfile.write(bytes(open_index, &#34;utf-8&#34;))
+
+httpd = HTTPServer((&#34;0.0.0.0&#34;, listenPort),MyServer)
+print(f&#34;Starting http server on port {listenPort}&#34;)
+httpd.serve_forever()
+</code></pre><p>And now for the breakdown:</p>
+<pre tabindex="0"><code>from http.server import HTTPServer, BaseHTTPRequestHandler
+</code></pre><p>I initially wanted to build a Python API using just the standard library so naturally <a href="https://docs.python.org/3/library/http.server.html">http.server</a> works well for basic POC.  Here we&rsquo;re importing the <code>HTTPServer</code> class which implements <code>TCPServer</code> class and will be our main http server listening for requests.  Next we use the <code>BaseHTTPRequestHandler</code> class to handle requests and serve responses.</p>
+<pre tabindex="0"><code>listenPort = 9292
+</code></pre><p>Port <code>8080</code> is so 90&rsquo;s and I actually keep track of which ports I have open for my apps.  When we instatiate our http server, it&rsquo;ll listen in on port <code>9292</code>.</p>
+<pre tabindex="0"><code>class MyServer(BaseHTTPRequestHandler):
+    def do_GET(self):        
+        if self.path == &#34;/&#34;:
+            self.path = &#34;/index.html&#34;
+            try:
+                open_index = open(self.path[1:]).read()
+                self.send_response(200)
+                self.send_header(&#34;Content-type&#34;, &#34;text/html&#34;)
+            except:
+                open_index = &#34;File not found&#34;
+                self.send_response(404)            
+            self.end_headers()
+            self.wfile.write(bytes(open_index, &#34;utf-8&#34;))
+</code></pre><p>Cool, more than just one-liners:</p>
+<pre tabindex="0"><code>class MyServer(BaseHTTPRequestHandler):
+</code></pre><p>We define a <code>MyServer</code> class which inherits from <code>BaseHTTPRequestHandler</code></p>
+<pre tabindex="0"><code>def do_GET(self):
+</code></pre><p>This will be our only HTTP verb/method which and is also our only class method.</p>
+<pre tabindex="0"><code>if self.path == &#34;/&#34;:
+            self.path = &#34;/index.html&#34;
+            try:
+                open_index = open(self.path[1:]).read()
+                self.send_response(200)
+                self.send_header(&#34;Content-type&#34;, &#34;text/html&#34;)
+            except:
+                open_index = &#34;File not found&#34;
+                self.send_response(404)            
+            self.end_headers()
+            self.wfile.write(bytes(open_index, &#34;utf-8&#34;))
+</code></pre><p>And the logic begins:</p>
+<ul>
+<li>If the <code>.path</code> property of our class equals the root level of our served application then&hellip;</li>
+<li>Read our only html doc at <code>/index.html</code> and send a 200 response code to the requestor&hellip;</li>
+<li>Otherwise, enjoy a 404 and a smile :)</li>
+</ul>
+<pre tabindex="0"><code>httpd = HTTPServer((&#34;0.0.0.0&#34;, listenPort),MyServer)
+</code></pre><p>And in walks our http server where we&rsquo;ve passed it&rsquo;s <code>server_address</code> at all network interfaces listening on port 9292, and <code>RequestHandlerClass</code> which happens to be <code>MyServer</code></p>
+<pre tabindex="0"><code>httpd.serve_forever()
+</code></pre><p>Forever is a bit excessive yeah?</p>
+<p>Let&rsquo;s see what&rsquo;s in <code>/index.html</code></p>
+<pre tabindex="0"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;p&gt;Greetings from httPyze/src/index.html&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt; 
+</code></pre><p>I know, so original.  At least we know where the doc lives.</p>
+<h1 id="so-what-does-prod-look-like">So what does prod look like?</h1>
+<pre tabindex="0"><code>$ python3 httpsrv.py 
+Starting http server on port 9292
+192.168.1.80 - - [20/Feb/2023 08:39:59] &#34;GET / HTTP/1.1&#34; 200 -
+</code></pre><p>And from our browser</p>
+<p><img src="/httpyze-server/httpyze-firefox-screenshot.png" alt="localhost:9292" title="Hi there :)"></p>
+<hr>
+<p>This is a good stopping point.  Let&rsquo;s pick up in the next sesh where we&rsquo;ll dockerize with podman and deploy to Kubernetes!</p>
+
+        </p>
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2023 codedinsugar.com</span>
+</footer>
+</body>
+</html>

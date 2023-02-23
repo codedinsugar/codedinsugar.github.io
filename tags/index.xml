@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on codedinsugar</title>
+    <link>https://codedinsugar.com/tags/</link>
+    <description>Recent content in Tags on codedinsugar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Feb 2023 21:25:53 -0500</lastBuildDate><atom:link href="https://codedinsugar.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blog</title>
+      <link>https://codedinsugar.com/tags/blog/</link>
+      <pubDate>Sun, 19 Feb 2023 21:25:53 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://codedinsugar.com/tags/python/</link>
+      <pubDate>Sun, 19 Feb 2023 21:25:53 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dev</title>
+      <link>https://codedinsugar.com/tags/dev/</link>
+      <pubDate>Tue, 01 Nov 2022 16:03:06 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/tags/dev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://codedinsugar.com/tags/go/</link>
+      <pubDate>Tue, 01 Nov 2022 16:03:06 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>secretProject</title>
+      <link>https://codedinsugar.com/tags/secretproject/</link>
+      <pubDate>Thu, 20 Oct 2022 10:38:10 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/tags/secretproject/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://codedinsugar.com/tags/bash/</link>
+      <pubDate>Sat, 30 Jul 2022 12:49:42 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

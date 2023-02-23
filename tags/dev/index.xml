@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dev on codedinsugar</title>
+    <link>https://codedinsugar.com/tags/dev/</link>
+    <description>Recent content in dev on codedinsugar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Nov 2022 16:03:06 -0500</lastBuildDate><atom:link href="https://codedinsugar.com/tags/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>secretProject part 3 - http.HandleFunc in Go</title>
+      <link>https://codedinsugar.com/posts/go-http-server/</link>
+      <pubDate>Tue, 01 Nov 2022 16:03:06 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/go-http-server/</guid>
+      <description>Oh, what a tangled web we weave, when first we practice to deceive!!.
+-Sir Walter Scott
+Previously on codedinsugar.com Now that we have our secretProject Kubernetes cluster built, let&amp;rsquo;s throw some custom apps in there!
+Keep it simple and sweet This is NOT a Kubernetes (k8s) tutorial! The k8s ecosystem is massive if you&amp;rsquo;re into container orchestration, read their docs here. I use k8s everyday at work and at home and even though it&amp;rsquo;s almost become second nature for me, I still don&amp;rsquo;t know everything about it&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>secretProject part 2 - fun with Ansible</title>
+      <link>https://codedinsugar.com/posts/kubernetes-cluster-pt-2/</link>
+      <pubDate>Thu, 20 Oct 2022 10:38:10 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/kubernetes-cluster-pt-2/</guid>
+      <description>Mr. Wizard! Get me the hell out of here!.
+-Neo
+Previously on codedinsugar.com Continuing where we left off, we&amp;rsquo;ve used libvirt/virt-install to successfully create three vm&amp;rsquo;s for our Kubernetes cluster for secretProject. So what happens next?
+Let&amp;rsquo;s play with Ansible I&amp;rsquo;ve used Ansible often in the past but it was never a core part of my daily work. There is a lot to learn about Ansible and I highly suggest you check out their site, especially if you&amp;rsquo;re interested in the SRE/DevOps space.</description>
+    </item>
+    
+    <item>
+      <title>secretProject part 1 - fun with KVM</title>
+      <link>https://codedinsugar.com/posts/kubernetes-cluster-pt-1/</link>
+      <pubDate>Sat, 01 Oct 2022 07:31:12 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/kubernetes-cluster-pt-1/</guid>
+      <description>Unfortunately, no one can be told what the Matrix is. You have to see it for yourself.
+-Morpheus
+Previously on codedinsugar.com Continuing where we left off, I wanted to build a kvm vm&amp;rsquo;s to run a Kubernetes cluster for the secretProject platform.
+Since the early 2000&amp;rsquo;s I&amp;rsquo;ve used several virtualization hypervisors, including:
+Hyper-V KVM VMware VirtualBox XenServer Not including AWS EC2 and Docker But for the purpose of secretProject and the need to self-host on a single bare metal machine, I needed the most lightweight solution and luckily without the need a ton of features.</description>
+    </item>
+    
+    <item>
+      <title>The Beginning of secretProject</title>
+      <link>https://codedinsugar.com/posts/the-beginning-of-secretproject/</link>
+      <pubDate>Sat, 10 Sep 2022 10:48:23 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/the-beginning-of-secretproject/</guid>
+      <description>What&amp;rsquo;s in a name? That which we call a rose by any other name would smell just as sweet.
+-William Shakespeare
+Where to start? Ask a thousand software enthusiasts what the two most difficult things about software development is and you&amp;rsquo;ll likely aggregate to:
+Deciding what to develop Naming what you want to develop What to develop? About 5 years ago I came up with the idea for a personal project (hereinafter called secretProject), an application that would mainly serve two purposes:</description>
+    </item>
+    
+    <item>
+      <title>Retrieve hyperlinks via cli with shuttle</title>
+      <link>https://codedinsugar.com/posts/introducting-shuttle/</link>
+      <pubDate>Sat, 30 Jul 2022 12:49:42 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/introducting-shuttle/</guid>
+      <description>To infinity and beyond.
+-Buzz Lightyear
+I spend a lot of time at the terminal, either in vscode or a zsh shell.
+Two apps I use often are tldr and cht.sh because:
+I don&amp;rsquo;t remember the bookmarks that I have. I have too many bookmarks. While tldr and cht.sh are handy for retrieving public info, I needed a similar utility for work. Our tech stack has a lot of astronomy jargon e.</description>
+    </item>
+    
+  </channel>
+</rss>

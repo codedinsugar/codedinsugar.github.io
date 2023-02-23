@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on codedinsugar</title>
+    <link>https://codedinsugar.com/tags/blog/</link>
+    <description>Recent content in blog on codedinsugar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Feb 2023 21:25:53 -0500</lastBuildDate><atom:link href="https://codedinsugar.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From http.server with love</title>
+      <link>https://codedinsugar.com/posts/httpyze-server/</link>
+      <pubDate>Sun, 19 Feb 2023 21:25:53 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/httpyze-server/</guid>
+      <description>Darling Moneypenny, you know I never even look at another woman..
+-James Bond
+So we layed out the plan here, and now we action it.
+Let&amp;rsquo;s just jump right into it Here&amp;rsquo;s what we&amp;rsquo;re working with:
+$ tree . ├── Dockerfile ├── README.md └── src ├── httpsrv.py └── index.html Obviously the fun bits are going to be in httpsrv.py:
+from http.server import HTTPServer, BaseHTTPRequestHandler listenPort = 9292 class MyServer(BaseHTTPRequestHandler): def do_GET(self): if self.</description>
+    </item>
+    
+    <item>
+      <title>httPyze - a Python model for secretProject</title>
+      <link>https://codedinsugar.com/posts/golden/</link>
+      <pubDate>Fri, 23 Dec 2022 10:39:50 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/golden/</guid>
+      <description>Everything has beauty, but not everyone sees it.
+-Confucius
+Python how I love thee, let me count the ways In a recent social engagement, the topic of discussion was Python. Somewhere in the middle of the conversation I said something along the lines of &amp;ldquo;I love Python, been reading it for years, wish I could write more of it everyday&amp;rdquo;. Then it dawned on me, why don&amp;rsquo;t I write Python everyday?</description>
+    </item>
+    
+    <item>
+      <title>How&#39;d I Get Here?  GitHub &#43; Hugo &#43; Namecheap</title>
+      <link>https://codedinsugar.com/posts/howd-i-get-here/</link>
+      <pubDate>Mon, 25 Jul 2022 09:45:59 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/howd-i-get-here/</guid>
+      <description>A man has no name.
+-Jaqen H&amp;rsquo;ghar
+I consider myself a private person, especially my digital persona. I don&amp;rsquo;t do social media. The last public internet presence I updated was probably my LinkedIn account some 10 years ago and a short-lived MySpace account almost 20 years ago. Surprisingly my Flickr account is still active and I&amp;rsquo;ll ask an occassional question on Reddit but that&amp;rsquo;s about it. Call me old-skool but I prefer to keep my interactions in-person.</description>
+    </item>
+    
+    <item>
+      <title>Blog Roadmap</title>
+      <link>https://codedinsugar.com/posts/blog-roadmap/</link>
+      <pubDate>Fri, 22 Jul 2022 22:37:16 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/blog-roadmap/</guid>
+      <description> Before the score comes the goal
+July 2022 Intro posts August 2022 Configure a light|dark|colored mode September 2022 Add a custom logo and a main page image October 2022 Persist the navigation menu (current styling auto hides it) November 2022 Maintain a one post per week minimum standard December 2022 End of year wrap up </description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://codedinsugar.com/posts/hello-world/</link>
+      <pubDate>Fri, 22 Jul 2022 21:47:50 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/hello-world/</guid>
+      <description>Initial commit :)</description>
+    </item>
+    
+  </channel>
+</rss>

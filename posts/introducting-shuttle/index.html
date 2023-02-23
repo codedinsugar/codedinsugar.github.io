@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Retrieve hyperlinks via cli with shuttle</title>
+    <meta name="description" content="SRE &#43; DEV &#43; OPS">
+    <meta name="keywords" content='blog, codedinsugar, hugo, dev, bash'>
+
+    <meta property="og:url" content="https://codedinsugar.com/posts/introducting-shuttle/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Retrieve hyperlinks via cli with shuttle">
+    <meta property="og:description" content="SRE &#43; DEV &#43; OPS">
+    <meta property="og:image" content="/images/sugar.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Retrieve hyperlinks via cli with shuttle">
+    <meta name="twitter:description" content="SRE &#43; DEV &#43; OPS">
+    <meta property="twitter:domain" content="https://codedinsugar.com/posts/introducting-shuttle/">
+    <meta property="twitter:url" content="https://codedinsugar.com/posts/introducting-shuttle/">
+    <meta name="twitter:image" content="/images/sugar.png">
+
+    
+    <link rel="canonical" href="https://codedinsugar.com/posts/introducting-shuttle/" />
+
+    <link rel="stylesheet" type="text/css" href="https://codedinsugar.com/css/normalize.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" type="text/css" href="https://codedinsugar.com/css/main.css">
+    <link disabled id="dark-theme" rel="stylesheet" href="https://codedinsugar.com/css/dark.css">
+
+    <script src="https://codedinsugar.com/js/svg-injector.min.js"></script>
+    <script src="https://codedinsugar.com/js/feather-icons.min.js"></script>
+    <script src="https://codedinsugar.com/js/main.js"></script>
+
+    
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://codedinsugar.com">
+                <img src="https://codedinsugar.com/images/sugar.png" alt="avatar" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://codedinsugar.com">codedinsugar</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/"><span data-feather='home'></span> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/posts/"><span data-feather='code'></span> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/whoami"><span data-feather='cpu'></span> Whoami </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://codedinsugar.com/tags/"><span data-feather='tag'></span> Tags </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/"><span data-feather='home'></span> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/posts/"><span data-feather='code'></span> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/whoami"><span data-feather='cpu'></span> Whoami </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://codedinsugar.com/tags/"><span data-feather='tag'></span> Tags </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Retrieve hyperlinks via cli with shuttle</h1>
+        <small role="doc-subtitle"></small>
+        <p class="post-date">
+            July 30, 2022
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://codedinsugar.com/tags/dev">dev</a></li>
+        
+            <li class="post-tag"><a href="https://codedinsugar.com/tags/bash">bash</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <blockquote>
+<p>To infinity and beyond.</p>
+<p>-Buzz Lightyear</p>
+</blockquote>
+<p>I spend a lot of time at the terminal, either in vscode or a zsh shell.</p>
+<p>Two apps I use often are <a href="https://github.com/tldr-pages/tldr">tldr</a> and <a href="https://github.com/chubin/cheat.sh">cht.sh</a> because:</p>
+<ol>
+<li>I don&rsquo;t remember the bookmarks that I have.</li>
+<li>I have too many bookmarks.</li>
+</ol>
+<p>While tldr and cht.sh are handy for retrieving public info, I needed a similar utility for work.  Our tech stack has a lot of astronomy jargon e.g. galaxy, quadrant, planet, etc. and since we embrace a DevOps culture I wanted to build something that blends with our spatial theme and also fits nicely with multiple teams.</p>
+<hr>
+<h2 id="introducing-shuttlehttpsgithubcomcodedinsugarshuttle---a-simple-cli-tool-to-retrieve-hyperlinks">Introducing <a href="https://github.com/codedinsugar/shuttle">shuttle</a> - a simple cli tool to retrieve hyperlinks.</h2>
+<p>Usage is fairly simple, just run <code>./shuttle $arg</code> and it&rsquo;ll retrieve the contents of a respectively named json file.</p>
+<h2 id="example">Example:</h2>
+<pre tabindex="0"><code>#microservice1.json is in the shuttle-files path
+
+./shuttle microservice1
+{
+  &#34;name&#34;: &#34;microservice1&#34;,
+  &#34;wiki&#34;: &#34;https://microservice1/wiki&#34;,
+  &#34;playbook&#34;: &#34;https://microservice1/playbook&#34;,
+  &#34;diagram&#34;: &#34;https://microservice1/diagram&#34;,
+  &#34;communication&#34;: &#34;https://microservice1/comms&#34;
+}
+</code></pre><p>Check it out <a href="https://github.com/codedinsugar/shuttle">here</a>!</p>
+
+        </p>
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    <span>&copy; 2023 codedinsugar.com</span>
+</footer>
+</body>
+</html>

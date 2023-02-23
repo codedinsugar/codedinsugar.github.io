@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>codedinsugar</title>
+    <link>https://codedinsugar.com/</link>
+    <description>Recent content on codedinsugar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Feb 2023 21:25:53 -0500</lastBuildDate><atom:link href="https://codedinsugar.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From http.server with love</title>
+      <link>https://codedinsugar.com/posts/httpyze-server/</link>
+      <pubDate>Sun, 19 Feb 2023 21:25:53 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/httpyze-server/</guid>
+      <description>Darling Moneypenny, you know I never even look at another woman..
+-James Bond
+So we layed out the plan here, and now we action it.
+Let&amp;rsquo;s just jump right into it Here&amp;rsquo;s what we&amp;rsquo;re working with:
+$ tree . ├── Dockerfile ├── README.md └── src ├── httpsrv.py └── index.html Obviously the fun bits are going to be in httpsrv.py:
+from http.server import HTTPServer, BaseHTTPRequestHandler listenPort = 9292 class MyServer(BaseHTTPRequestHandler): def do_GET(self): if self.</description>
+    </item>
+    
+    <item>
+      <title>httPyze - a Python model for secretProject</title>
+      <link>https://codedinsugar.com/posts/golden/</link>
+      <pubDate>Fri, 23 Dec 2022 10:39:50 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/golden/</guid>
+      <description>Everything has beauty, but not everyone sees it.
+-Confucius
+Python how I love thee, let me count the ways In a recent social engagement, the topic of discussion was Python. Somewhere in the middle of the conversation I said something along the lines of &amp;ldquo;I love Python, been reading it for years, wish I could write more of it everyday&amp;rdquo;. Then it dawned on me, why don&amp;rsquo;t I write Python everyday?</description>
+    </item>
+    
+    <item>
+      <title>secretProject part 3 - http.HandleFunc in Go</title>
+      <link>https://codedinsugar.com/posts/go-http-server/</link>
+      <pubDate>Tue, 01 Nov 2022 16:03:06 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/go-http-server/</guid>
+      <description>Oh, what a tangled web we weave, when first we practice to deceive!!.
+-Sir Walter Scott
+Previously on codedinsugar.com Now that we have our secretProject Kubernetes cluster built, let&amp;rsquo;s throw some custom apps in there!
+Keep it simple and sweet This is NOT a Kubernetes (k8s) tutorial! The k8s ecosystem is massive if you&amp;rsquo;re into container orchestration, read their docs here. I use k8s everyday at work and at home and even though it&amp;rsquo;s almost become second nature for me, I still don&amp;rsquo;t know everything about it&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>secretProject part 2 - fun with Ansible</title>
+      <link>https://codedinsugar.com/posts/kubernetes-cluster-pt-2/</link>
+      <pubDate>Thu, 20 Oct 2022 10:38:10 -0500</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/kubernetes-cluster-pt-2/</guid>
+      <description>Mr. Wizard! Get me the hell out of here!.
+-Neo
+Previously on codedinsugar.com Continuing where we left off, we&amp;rsquo;ve used libvirt/virt-install to successfully create three vm&amp;rsquo;s for our Kubernetes cluster for secretProject. So what happens next?
+Let&amp;rsquo;s play with Ansible I&amp;rsquo;ve used Ansible often in the past but it was never a core part of my daily work. There is a lot to learn about Ansible and I highly suggest you check out their site, especially if you&amp;rsquo;re interested in the SRE/DevOps space.</description>
+    </item>
+    
+    <item>
+      <title>secretProject part 1 - fun with KVM</title>
+      <link>https://codedinsugar.com/posts/kubernetes-cluster-pt-1/</link>
+      <pubDate>Sat, 01 Oct 2022 07:31:12 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/kubernetes-cluster-pt-1/</guid>
+      <description>Unfortunately, no one can be told what the Matrix is. You have to see it for yourself.
+-Morpheus
+Previously on codedinsugar.com Continuing where we left off, I wanted to build a kvm vm&amp;rsquo;s to run a Kubernetes cluster for the secretProject platform.
+Since the early 2000&amp;rsquo;s I&amp;rsquo;ve used several virtualization hypervisors, including:
+Hyper-V KVM VMware VirtualBox XenServer Not including AWS EC2 and Docker But for the purpose of secretProject and the need to self-host on a single bare metal machine, I needed the most lightweight solution and luckily without the need a ton of features.</description>
+    </item>
+    
+    <item>
+      <title>The Beginning of secretProject</title>
+      <link>https://codedinsugar.com/posts/the-beginning-of-secretproject/</link>
+      <pubDate>Sat, 10 Sep 2022 10:48:23 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/the-beginning-of-secretproject/</guid>
+      <description>What&amp;rsquo;s in a name? That which we call a rose by any other name would smell just as sweet.
+-William Shakespeare
+Where to start? Ask a thousand software enthusiasts what the two most difficult things about software development is and you&amp;rsquo;ll likely aggregate to:
+Deciding what to develop Naming what you want to develop What to develop? About 5 years ago I came up with the idea for a personal project (hereinafter called secretProject), an application that would mainly serve two purposes:</description>
+    </item>
+    
+    <item>
+      <title>Retrieve hyperlinks via cli with shuttle</title>
+      <link>https://codedinsugar.com/posts/introducting-shuttle/</link>
+      <pubDate>Sat, 30 Jul 2022 12:49:42 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/introducting-shuttle/</guid>
+      <description>To infinity and beyond.
+-Buzz Lightyear
+I spend a lot of time at the terminal, either in vscode or a zsh shell.
+Two apps I use often are tldr and cht.sh because:
+I don&amp;rsquo;t remember the bookmarks that I have. I have too many bookmarks. While tldr and cht.sh are handy for retrieving public info, I needed a similar utility for work. Our tech stack has a lot of astronomy jargon e.</description>
+    </item>
+    
+    <item>
+      <title>How&#39;d I Get Here?  GitHub &#43; Hugo &#43; Namecheap</title>
+      <link>https://codedinsugar.com/posts/howd-i-get-here/</link>
+      <pubDate>Mon, 25 Jul 2022 09:45:59 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/howd-i-get-here/</guid>
+      <description>A man has no name.
+-Jaqen H&amp;rsquo;ghar
+I consider myself a private person, especially my digital persona. I don&amp;rsquo;t do social media. The last public internet presence I updated was probably my LinkedIn account some 10 years ago and a short-lived MySpace account almost 20 years ago. Surprisingly my Flickr account is still active and I&amp;rsquo;ll ask an occassional question on Reddit but that&amp;rsquo;s about it. Call me old-skool but I prefer to keep my interactions in-person.</description>
+    </item>
+    
+    <item>
+      <title>Blog Roadmap</title>
+      <link>https://codedinsugar.com/posts/blog-roadmap/</link>
+      <pubDate>Fri, 22 Jul 2022 22:37:16 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/blog-roadmap/</guid>
+      <description> Before the score comes the goal
+July 2022 Intro posts August 2022 Configure a light|dark|colored mode September 2022 Add a custom logo and a main page image October 2022 Persist the navigation menu (current styling auto hides it) November 2022 Maintain a one post per week minimum standard December 2022 End of year wrap up </description>
+    </item>
+    
+    <item>
+      <title>Whoami</title>
+      <link>https://codedinsugar.com/whoami/</link>
+      <pubDate>Fri, 22 Jul 2022 21:54:27 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/whoami/</guid>
+      <description>Interesting reaction, but what does it mean?
+-Jack Skellington
+I respect the symbiant circle of simplicity and complexity in my field of practice. Since 2006, my career has revolved around the areas of Operations, Systems, Networking, Security, Development, and Cloud. The best commit one can push is to take a step back and look at the bigger picture.
+Accoutrements:
+I love to build, and I respect the power that software gives humans to solve problems.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://codedinsugar.com/posts/hello-world/</link>
+      <pubDate>Fri, 22 Jul 2022 21:47:50 -0400</pubDate>
+      
+      <guid>https://codedinsugar.com/posts/hello-world/</guid>
+      <description>Initial commit :)</description>
+    </item>
+    
+  </channel>
+</rss>
